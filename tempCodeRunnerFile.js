@@ -1,13 +1,13 @@
 const express = require('express')
-const app = express()                                                       
+const app = express()
 const port = 3000
-app.set("view engine","ejs");
+app.use(express.static("public"))
 
-app.get('/', (req, res) => {
-  logoname="flipkart"
-  brandname="amazon"
-  res.render("index",{logoname:logoname, brandname:brandname});
+app.post("/",(req,res)=>{
+    console.log("hello");
+    res.send("hello word");
 })
+
 app.listen(port, () => {
-   console.log(`Example app listening on port ${port}`)
- })
+  console.log(`Example app listening on port ${port}`)
+})
